@@ -14,6 +14,7 @@
 
 #import "TestSerialization.h"
 #import "TestSerializationAssociation.h"
+#import "OTRestModelMapperTestModel.h"
 
 @interface OTRestModelMapperSpec : NSObject <UISpec>
 
@@ -159,5 +160,56 @@
 	return xml;
 }
 
+- (void)itShouldNotUpdateNilPropertyToNil {
+	OTRestModelMapperTestModel* model = [[OTRestModelMapperTestModel alloc] autorelease];
+	OTRestModelMapper* mapper = [[OTRestModelMapper alloc] init];
+	[mapper updateObject:model ifNewPropertyPropertyValue:nil forPropertyNamed:@"name"];
+	
+	[expectThat(model.name) should:be(nil)];
+}
+
+- (void)itShouldBeAbleToSetNonNilPropertiesToNil {
+	OTRestModelMapperTestModel* model = [[OTRestModelMapperTestModel alloc] autorelease];
+	model.age = [NSNumber numberWithInt:0];
+	OTRestModelMapper* mapper = [[OTRestModelMapper alloc] init];
+	[mapper updateObject:model ifNewPropertyPropertyValue:nil forPropertyNamed:@"age"];
+	
+	[expectThat(model.age) should:be(nil)];
+}
+
+- (void)itShouldBeAbleToSetNilPropertiesToNonNil {
+	OTRestModelMapperTestModel* model = [[OTRestModelMapperTestModel alloc] autorelease];
+	OTRestModelMapper* mapper = [[OTRestModelMapper alloc] init];
+	[mapper updateObject:model ifNewPropertyPropertyValue:[NSNumber numberWithInt:0] forPropertyNamed:@"age"];
+	
+	[expectThat(model.age) should:be([NSNumber numberWithInt:0])];
+}
+
+- (void)itShouldBeAbleToSetNonNilNSStringPropertiesToNonNil {
+	OTRestModelMapperTestModel* model = [[OTRestModelMapperTestModel alloc] autorelease];
+	OTRestModelMapper* mapper = [[OTRestModelMapper alloc] init];
+	
+	model.name = @"Bob";
+	[mapper updateObject:model ifNewPropertyPropertyValue:@"Will" forPropertyNamed:@"name"];
+	[expectThat(model.name) should:be(@"Will")];	
+}
+
+- (void)itShouldBeAbleToSetNonNilNSNumberPropertiesToNonNil {
+	OTRestModelMapperTestModel* model = [[OTRestModelMapperTestModel alloc] autorelease];
+	OTRestModelMapper* mapper = [[OTRestModelMapper alloc] init];
+	
+	model.age = [NSNumber numberWithInt:16];
+	[mapper updateObject:model ifNewPropertyPropertyValue:[NSNumber numberWithInt:17] forPropertyNamed:@"age"];
+	[expectThat(model.age) should:be([NSNumber numberWithInt:17])];	
+}
+
+- (void)itShouldBeAbleToSetNonNilNSDatePropertiesToNonNil {
+	OTRestModelMapperTestModel* model = [[OTRestModelMapperTestModel alloc] autorelease];
+	OTRestModelMapper* mapper = [[OTRestModelMapper alloc] init];
+	
+	model.createdAt = [NSDate date];
+	[mapper updateObject:model ifNewPropertyPropertyValue:[NSDate dateWithTimeIntervalSince1970:0] forPropertyNamed:@"createdAt"];
+	[expectThat(model.createdAt) should:be([NSDate dateWithTimeIntervalSince1970:0])];	
+}
 
 @end

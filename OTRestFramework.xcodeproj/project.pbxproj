@@ -130,6 +130,8 @@
 		3FCDFB6C103A51B600D7CD66 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCDFB59103A51B600D7CD66 /* SBJsonWriter.m */; };
 		AA747D9F0F9514B9006C5449 /* OTRestFramework_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OTRestFramework_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DB8AB66B110DFC4C00C9E736 /* Data Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = DB8AB66A110DFC4C00C9E736 /* Data Model.xcdatamodel */; };
+		DB8AB807110E207800C9E736 /* OTRestModelMapperTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8AB806110E207800C9E736 /* OTRestModelMapperTestModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +302,9 @@
 		AA747D9E0F9514B9006C5449 /* OTRestFramework_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTRestFramework_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libOTRestFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOTRestFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB8AB66A110DFC4C00C9E736 /* Data Model.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = "Data Model.xcdatamodel"; path = "Models/Data Model.xcdatamodel"; sourceTree = "<group>"; };
+		DB8AB805110E207800C9E736 /* OTRestModelMapperTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTRestModelMapperTestModel.h; sourceTree = "<group>"; };
+		DB8AB806110E207800C9E736 /* OTRestModelMapperTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTRestModelMapperTestModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +404,8 @@
 				255DE1AF10FFB16800A85891 /* OTRestSpecResponseLoader.h */,
 				255DE1B010FFB16800A85891 /* OTRestSpecResponseLoader.m */,
 				255DE4A4110113B700A85891 /* OTRestSpecEnvironment.h */,
+				DB8AB805110E207800C9E736 /* OTRestModelMapperTestModel.h */,
+				DB8AB806110E207800C9E736 /* OTRestModelMapperTestModel.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -533,6 +540,7 @@
 		3F6C3A9210FE750E008F47C5 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				DB8AB66A110DFC4C00C9E736 /* Data Model.xcdatamodel */,
 				255DE43011010ED400A85891 /* Core */,
 				255DE0A110FFA43A00A85891 /* Support */,
 				255DE05B10FFA04200A85891 /* Models */,
@@ -856,6 +864,8 @@
 				255DE43B11010F8400A85891 /* OTRestResponseSpec.m in Sources */,
 				255DE62B1104BA2B00A85891 /* OTRestModelMapperSpec.m in Sources */,
 				255DE62C1104BA2D00A85891 /* OTRestManagedModelSpec.m in Sources */,
+				DB8AB66B110DFC4C00C9E736 /* Data Model.xcdatamodel in Sources */,
+				DB8AB807110E207800C9E736 /* OTRestModelMapperTestModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
