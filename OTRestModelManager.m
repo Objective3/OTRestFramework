@@ -9,8 +9,8 @@
 #import "OTRestModelManager.h"
 #import "OTRestModelLoader.h"
 
-extern NSString* const kOTRestDidEnterOfflineMode = @"kOTRestDidEnterOfflineMode";
-extern NSString* const kOTRestDidEnterOnlineMode = @"kOTRestDidEnterOnlineMode";
+NSString* const kOTRestDidEnterOfflineMode = @"kOTRestDidEnterOfflineMode";
+NSString* const kOTRestDidEnterOnlineMode = @"kOTRestDidEnterOnlineMode";
 
 //////////////////////////////////
 // Global Instance

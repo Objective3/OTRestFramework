@@ -68,7 +68,7 @@
 	NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:[self HTTPMethod], @"HTTPMethod", [self URL], @"URL", sentAt, @"sentAt", nil];
 	[[NSNotificationCenter defaultCenter] postNotificationName:kOTRestRequestSentNotification object:self userInfo:userInfo];
 	OTRestResponse* response = [[[OTRestResponse alloc] initWithRestRequest:self] autorelease];
-	[[NSURLConnection connectionWithRequest:_URLRequest delegate:response] retain];
+	[[NSURLConnection connectionWithRequest:_URLRequest delegate:response] retain];		
 }
 
 - (void)get {
