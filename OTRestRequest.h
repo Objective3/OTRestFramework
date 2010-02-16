@@ -100,3 +100,16 @@
 - (void)delete;
 
 @end
+
+/**
+ * Lifecycle events for OTRestRequests
+ *
+ * Modeled off of TTURLRequest
+ */
+@protocol OTRestRequestDelegate 
+@optional
+- (void)requestDidStartLoad:(OTRestRequest*)request;
+- (void)requestDidFinishLoad:(OTRestRequest*)request;
+- (void)request:(OTRestRequest*)request didFailLoadWithError:(NSError*)error;
+- (void)requestDidCancelLoad:(OTRestRequest*)request; // not yet implemented
+@end
