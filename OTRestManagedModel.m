@@ -101,8 +101,24 @@
 	return @"id";
 }
 
+/**
+ * TODO: Unwind assumptions about the primaryKey
+ *
+ * Right now we make the blanket assumption that Primary Keys are stored as NSNumber values. We
+ * cast from NSStrings into NSNumbers to fix a weird bug Jeremy encountered with the subtle predicate
+ * differences causes nil return values in some cases. This needs to be better understood and the assumptions
+ * unwound.
+ */
 + (id)findByPrimaryKey:(id)value {
-	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K = %@", [self primaryKey], value];
+	id primaryKeyValue = nil;
+	if ([value isKindOfClass:[NSString class]]) {
+		// Cast from string to a number
+		primaryKeyValue = [NSNumber numberWithInt:[(NSString*)value integerValue]];
+	} else {
+		// Make blind assumption here.
+		primaryKeyValue = value;
+	}
+	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K = %@", [self primaryKey], primaryKeyValue];
 	return [self objectWithPredicate:predicate];
 }
 
