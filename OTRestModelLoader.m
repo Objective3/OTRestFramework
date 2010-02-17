@@ -30,7 +30,7 @@
 }
 
 - (BOOL)processResponse:(OTRestResponse*)response {
-	NSString* errorMessage;
+	NSString* errorMessage = nil;
 	OTRestRequest* request = response.request;
 	if ([response isFailure]) {
 		[_delegate modelLoaderRequest:response.request didFailWithError:response.failureError response:response model:(id<OTRestModelMappable>)request.userData];
